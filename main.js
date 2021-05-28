@@ -1,12 +1,23 @@
-inputdict = {"CurrentVersion":"0.1","RoutineHubID":"2647"};
+inputdict = {"CurrentVersion":"1.0","ID":"2647","Service":"RoutineHub"};
 
-let xhr = new XMLHttpRequest()
-xhr.open('GET','https://routinehub.co/api/v1/shortcuts/' + inputdict.RoutineHubID + '/versions/latest',false);
-xhr.send();
-rhapioutput = JSON.parse(xhr.responseText);
+if (inputdict.Service == 'RoutineHub') {
+ let xhr = new XMLHttpRequest()
+ xhr.open('GET','https://routinehub.co/api/v1/shortcuts/' + inputdict.ID + '/versions/latest',false);
+ xhr.send();
+ apioutput = JSON.parse(xhr.responseText);
+} else {
+ let xhr = new XMLHttpRequest()
+ xhr.open('GET',inputdict.Service + inputdict.ID,false);
+ xhr.send();
+ apioutput = JSON.parse(xhr.responseText);
+}
 
 CurrentVersion = inputdict.CurrentVersion;
-NewVersion = rhapioutput.Version;
+if (inputdict.Service == 'RoutineHub') {
+ NewVersion = apioutput.Version;
+} else {
+ NewVersion = apioutput.Version
+}
 if (CurrentVersion == NewVersion)
 {
   result = '{"result":"updated","NewVersion":"' + NewVersion + '"}';
@@ -17,4 +28,5 @@ if (CurrentVersion == NewVersion)
     result = '{"result":"update","NewVersion":"' + NewVersion + '"}';
   }
 }
+
 document.write(result);
