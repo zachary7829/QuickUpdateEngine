@@ -13,11 +13,7 @@ if (inputdict.Service == 'RoutineHub') {
 }
 
 CurrentVersion = inputdict.CurrentVersion;
-if (inputdict.Service == 'RoutineHub') {
- NewVersion = apioutput.Version;
-} else {
- NewVersion = apioutput.Version
-}
+NewVersion = apioutput.Version;
 if (CurrentVersion == NewVersion)
 {
   result = '{"result":"updated","NewVersion":"' + NewVersion + '"}';
