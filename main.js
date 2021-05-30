@@ -1,6 +1,6 @@
 inputdict = {"CurrentVersion":"1.0","ID":"2647","Service":"RoutineHub"};
 
-result = 0
+document.write('{"result":"NO INTERNET/ROUTINEHUB DOWN"}')
 let xhr = new XMLHttpRequest()
 if (inputdict.Service == 'RoutineHub') {
  xhr.open('GET','https://routinehub.co/api/v1/shortcuts/' + inputdict.ID + '/versions/latest',false);
@@ -23,6 +23,9 @@ if (inputdict.CurrentVersion == apioutput.Version)
 
 if (result.includes('update'))
 {
- result = 'NO INTERNET/ROUTINEHUB DOWN'
+} else {
+ result = '{"result":"NO INTERNET/ROUTINEHUB DOWN"}'
 }
+
+document.body.innerHTML = '';
 document.write(result);
