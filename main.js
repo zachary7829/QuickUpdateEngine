@@ -1,27 +1,22 @@
 inputdict = {"CurrentVersion":"1.0","ID":"2647","Service":"RoutineHub"};
 
+let xhr = new XMLHttpRequest()
 if (inputdict.Service == 'RoutineHub') {
- let xhr = new XMLHttpRequest()
  xhr.open('GET','https://routinehub.co/api/v1/shortcuts/' + inputdict.ID + '/versions/latest',false);
- xhr.send();
- apioutput = JSON.parse(xhr.responseText);
 } else {
- let xhr = new XMLHttpRequest()
  xhr.open('GET',inputdict.Service + inputdict.ID,false);
- xhr.send();
- apioutput = JSON.parse(xhr.responseText);
 }
+xhr.send();
+apioutput = JSON.parse(xhr.responseText);
 
-CurrentVersion = inputdict.CurrentVersion;
-NewVersion = apioutput.Version;
-if (CurrentVersion == NewVersion)
+if (inputdict.CurrentVersion == apioutput.Version)
 {
-  result = '{"result":"updated","NewVersion":"' + NewVersion + '"}';
+  result = '{"result":"updated","NewVersion":"' + apioutput.Version + '","QuickUpdate Version":"3.4"}';
 } else {
-  if (CurrentVersion > NewVersion) {
-    result = '{"result":"rollback","NewVersion":"' + NewVersion + '"}';
+  if (inputdict.CurrentVersion > apioutput.Version) {
+    result = '{"result":"rollback","NewVersion":"' + NewVersion + '","QuickUpdate Version":"3.4"}';
   } else {
-    result = '{"result":"update","NewVersion":"' + NewVersion + '"}';
+    result = '{"result":"update","NewVersion":"' + apioutput.Version + '","QuickUpdate Version":"3.4"}';
   }
 }
 
