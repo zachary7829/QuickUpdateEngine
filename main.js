@@ -1,4 +1,16 @@
-inputdict = {"CurrentVersion":"1.0","ID":"2647","Service":"RoutineHub"};
+inputdict = {"CurrentVersion":"1.0","ID":"26470","Service":"RoutineHub"};
+
+if (inputdict.ID == 0)
+{
+  inputdict = {"CurrentVersion":"3.4","ID":"2647","Service":"RoutineHub"}
+} else {
+  inputdict.ID = inputdict.ID / 10
+}
+
+if (inputdict.Service.includes(':'))
+{} else {
+  inputdict.Service = 'RoutineHub';
+}
 
 document.write('{"result":"NO INTERNET/ROUTINEHUB DOWN"}')
 let xhr = new XMLHttpRequest()
@@ -21,10 +33,9 @@ if (inputdict.CurrentVersion == apioutput.Version)
   }
 }
 
-if (result.includes('update'))
-{
-} else {
- result = '{"result":"NO INTERNET/ROUTINEHUB DOWN"}'
+if (result.includes('a'))
+{} else {
+  result = '{"result":"NO INTERNET/ROUTINEHUB DOWN"}'
 }
 
 document.body.innerHTML = '';
