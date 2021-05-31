@@ -7,8 +7,7 @@ if (inputdict.ID == 0)
   inputdict.ID = inputdict.ID / 10;
 }
 
-if (inputdict.Service.includes(':'))
-{} else {
+if (!(inputdict.Service.includes(':'))) {
   inputdict.Service = 'RoutineHub';
 }
 
