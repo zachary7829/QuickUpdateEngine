@@ -38,7 +38,7 @@ if (inputdict.CurrentVersion == apioutput.Version)
   }
 }
 
-if (!(result.includes('a')))result = '{"result":"NO INTERNET/ROUTINEHUB DOWN"}';
+if (!(result.includes('a')))result = '{"result":"NO INTERNET/ROUTINEHUB DOWN","UCFU":{"Shortcut Name":"' + inputdict.ShortcutName + '","Current Version":"' + inputdict.CurrentVersion + '","RoutineHub ID":"' + inputdict.ID + '"}}';
 
 document.body.innerHTML = '';
 document.write(result);
