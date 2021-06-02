@@ -1,5 +1,5 @@
 let inputdict = {"CurrentVersion":"1.0","ID":"2647","Service":"RoutineHub","ShortcutName":"QuickUpdate"};
-const ID = inputdict.ID
+
 if (!(inputdict.Service.includes(':'))) {
   inputdict.Service = 'RoutineHub';
 }
