@@ -19,5 +19,7 @@ In the dictionary QuickUpdateEngineAPI outputs, there's a *little* key called `U
 # To-Do:
 
 -Some tidying up with Custom Servers and how they're handled
+
 -Better error handling
+
 -Still gotta work on not constructing json from strings.
