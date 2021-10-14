@@ -22,4 +22,12 @@ In the dictionary QuickUpdateEngineAPI outputs, there's a *little* key called `U
 
 -Better error handling
 
--Still gotta work on not constructing json from strings.
+-Adding download URL on return from API
+
+-Return base64 encoded QuickUpdate vCard in API
+
+-Return `IsChangeAvailable` dictionary key **only** if there is a rollback/update available, might make QU an action faster
+
+-Auto-returning the shortcut's ID as a name if no name was inputted in the `ShortcutName` field
+
+-Still gotta work on not constructing json from strings, the way I do currently is really messy
